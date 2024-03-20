@@ -1,0 +1,28 @@
+name: Reproduce the WebView issue
+
+on:
+  - workflow_dispatch
+
+jobs:
+  test:
+    name: WebView issue
+    runs-on: windows-latest
+    steps:    
+      - name: Reproduce the WebView issue
+        run: |
+          Set-PSDebug -Trace 1
+
+          Add-AppxPackage -Path "$(System.DefaultWorkingDirectory)/WinArtifacts/WinUIStore/MyApp.Client.WinUI_$(MyAppVersionPlain1)_Test/Dependencies/x64/Microsoft.WindowsAppRuntime.1.5.msix"
+
+          $msixPath = "$(System.DefaultWorkingDirectory)/WinArtifacts/WinUI/MyApp.Client.WinUI_$(MyAppVersionPlain1)_x64.msix"
+
+          # Install the MSIX package
+          Add-AppxPackage -Path $msixPath
+
+          Get-AppxPackage MyApp.Client.WinUI
+
+          Start-Process shell:AppsFolder\MyApp.Client.WinUI_wjpzhde6g1vst!App
+
+          Start-Sleep 30
+
+          tasklist
