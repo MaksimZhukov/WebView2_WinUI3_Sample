@@ -1,3 +1,6 @@
+Copied from this sample: https://github.com/MicrosoftEdge/WebView2Samples/tree/main/SampleApps/WebView2_WinUI3_Sample
+
+
 # Introduction
 This sample shows off using a WebView2 control in a WinUi 3 Windows SDK Packaged application.
 
