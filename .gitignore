@@ -1,0 +1,17 @@
+bin/
+.vs/
+obj/
+FixedRuntime/
+# Created by running event monitor
+enc_temp_folder/
+packages/
+
+# Override root .gitignore to ensure we pick up changes for the sample app
+!*.sln
+!*.csproj
+
+# Make sure script debug config is checked in for vendor testing
+!.vscode
+
+/WebView2_WinUI3_Sample (Package)/AppPackages/
+/WebView2_WinUI3_Sample (Package)/WebView2/
